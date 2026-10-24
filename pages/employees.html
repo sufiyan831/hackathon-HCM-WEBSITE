@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HCM Lite - Employees</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+
+        <section class="card">
+          <div class="card-head">
+            <h2>Employees</h2>
+            <button class="btn btn-primary" id="add-btn" type="button">+ Add employee</button>
+          </div>
+
+          <div class="toolbar">
+            <input class="grow" type="search" id="search" placeholder="Search by name or email" aria-label="Search employees">
+            <select id="dept-filter" aria-label="Filter by department">
+              <option value="">All departments</option>
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Name</th><th>Email</th><th>Department</th><th>Salary</th><th>Joined</th><th>Actions</th></tr>
+              </thead>
+              <tbody id="emp-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Add / edit employee -->
+  <dialog id="emp-dialog">
+    <h2 id="dialog-title">Add employee</h2>
+    <form id="emp-form" novalidate>
+      <div class="form-grid">
+        <div>
+          <label for="e-name">Full name</label>
+          <input id="e-name" name="name" type="text">
+        </div>
+        <div>
+          <label for="e-email">Email (used to log in)</label>
+          <input id="e-email" name="email" type="email">
+        </div>
+        <div>
+          <label for="e-dept">Department</label>
+          <input id="e-dept" name="department" type="text" list="dept-list" placeholder="e.g. Sales">
+          <datalist id="dept-list"></datalist>
+        </div>
+        <div>
+          <label for="e-salary">Monthly salary (Rs)</label>
+          <input id="e-salary" name="salary" type="number" min="0" step="any">
+        </div>
+        <div class="full">
+          <label for="e-password" id="pw-label">Login password</label>
+          <input id="e-password" name="password" type="text" placeholder="At least 6 characters" autocomplete="off">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit" id="save-btn">Save</button>
+        <button class="btn btn-outline" type="button" id="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/employees.js"></script>
+  <script src="../js/attendance.js"></script>
+  <script src="../js/leave.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/pages/employees.js"></script>
+</body>
+</html>

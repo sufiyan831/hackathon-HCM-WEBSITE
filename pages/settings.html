@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HCM Lite - Settings</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+
+        <div class="grid grid-2">
+          <section class="card">
+            <h2>Company settings</h2>
+            <p class="card-sub">These rules decide who is late, leave limits and payslips.</p>
+            <form id="settings-form" novalidate>
+              <div class="form-grid">
+                <div class="full">
+                  <label for="s-name">Company name</label>
+                  <input id="s-name" name="name" type="text">
+                </div>
+                <div>
+                  <label for="s-start">Office start time</label>
+                  <input id="s-start" name="startTime" type="time">
+                </div>
+                <div>
+                  <label for="s-grace">Grace minutes</label>
+                  <input id="s-grace" name="graceMinutes" type="number" min="0" max="180">
+                </div>
+                <div class="full">
+                  <label for="s-quota">Yearly leave quota (days)</label>
+                  <input id="s-quota" name="leaveQuota" type="number" min="0" max="365">
+                </div>
+                <div class="full">
+                  <label>Working days</label>
+                  <div class="checks" id="days-box"></div>
+                  <div id="days-error"></div>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Save settings</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card">
+            <h2>Change password</h2>
+            <p class="card-sub">Change the password of your Admin account.</p>
+            <form id="password-form" novalidate>
+              <div class="form-grid">
+                <div class="full">
+                  <label for="p-old">Current password</label>
+                  <input id="p-old" name="oldPassword" type="password" autocomplete="current-password">
+                </div>
+                <div class="full">
+                  <label for="p-new">New password</label>
+                  <input id="p-new" name="newPassword" type="password" autocomplete="new-password">
+                </div>
+                <div class="full">
+                  <label for="p-confirm">Confirm new password</label>
+                  <input id="p-confirm" name="confirm" type="password" autocomplete="new-password">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Change password</button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/employees.js"></script>
+  <script src="../js/attendance.js"></script>
+  <script src="../js/leave.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/pages/settings.js"></script>
+</body>
+</html>

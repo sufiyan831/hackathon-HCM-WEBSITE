@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HCM Lite - Admin dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+
+        <!-- Today's numbers -->
+        <section class="stats" id="stats"></section>
+
+        <div class="grid grid-2">
+          <section class="card">
+            <h2>Last 7 days</h2>
+            <p class="card-sub">Employees who checked in each day</p>
+            <div class="bars" id="bars"></div>
+          </section>
+
+          <section class="card">
+            <h2>Smart helper</h2>
+            <p class="card-sub">Ask a question about your company data</p>
+            <div id="chat"></div>
+          </section>
+        </div>
+
+        <!-- Attendance records (all employees) -->
+        <section class="card">
+          <div class="card-head">
+            <h2>Attendance records</h2>
+            <button class="btn btn-outline btn-sm" id="csv-btn" type="button">Export CSV</button>
+          </div>
+          <div class="toolbar">
+            <div>
+              <label for="f-from">From</label>
+              <input type="date" id="f-from">
+            </div>
+            <div>
+              <label for="f-to">To</label>
+              <input type="date" id="f-to">
+            </div>
+            <div>
+              <label for="f-emp">Employee</label>
+              <select id="f-emp"><option value="">All employees</option></select>
+            </div>
+            <div>
+              <label for="f-status">Status</label>
+              <select id="f-status">
+                <option value="">All</option>
+                <option value="present">Present</option>
+                <option value="late">Late</option>
+                <option value="half">Half day</option>
+                <option value="leave">On leave</option>
+                <option value="absent">Absent</option>
+                <option value="pending">Not yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Date</th><th>Employee</th><th>Department</th><th>Check in</th><th>Check out</th><th>Hours</th><th>Status</th></tr>
+              </thead>
+              <tbody id="att-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Announcements -->
+        <div class="grid grid-2">
+          <section class="card">
+            <h2>Post an announcement</h2>
+            <p class="card-sub">Employees will see it on their dashboard</p>
+            <form id="announce-form" novalidate>
+              <div class="form-grid">
+                <div class="full">
+                  <label for="a-title">Title</label>
+                  <input id="a-title" name="title" type="text">
+                </div>
+                <div class="full">
+                  <label for="a-message">Message</label>
+                  <textarea id="a-message" name="message"></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Post</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card">
+            <h2>Announcements</h2>
+            <div id="announce-list"></div>
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/employees.js"></script>
+  <script src="../js/attendance.js"></script>
+  <script src="../js/leave.js"></script>
+  <script src="../js/payroll.js"></script>
+  <script src="../js/announcements.js"></script>
+  <script src="../js/helper.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/pages/admin.js"></script>
+</body>
+</html>

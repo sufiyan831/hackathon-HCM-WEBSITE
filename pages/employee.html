@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HCM Lite - My dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+
+        <!-- Check in / out -->
+        <section class="card">
+          <div class="today-card">
+            <div class="today-info">
+              <p class="muted" id="today-date"></p>
+              <div class="clock" id="clock"></div>
+              <p id="today-text" class="muted"></p>
+            </div>
+            <div class="today-buttons">
+              <button class="btn btn-primary" id="in-btn" type="button">Check in</button>
+              <button class="btn btn-warn" id="out-btn" type="button">Check out</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- This month -->
+        <section class="stats" id="stats"></section>
+
+        <div class="grid grid-2">
+          <!-- Apply leave -->
+          <section class="card">
+            <h2>Apply for leave</h2>
+            <p class="card-sub" id="balance-text"></p>
+            <form id="leave-form" novalidate>
+              <div class="form-grid">
+                <div>
+                  <label for="l-type">Type</label>
+                  <select id="l-type" name="type"></select>
+                </div>
+                <div></div>
+                <div>
+                  <label for="l-from">From</label>
+                  <input id="l-from" name="from" type="date">
+                </div>
+                <div>
+                  <label for="l-to">To</label>
+                  <input id="l-to" name="to" type="date">
+                </div>
+                <div class="full">
+                  <label for="l-reason">Reason</label>
+                  <textarea id="l-reason" name="reason"></textarea>
+                </div>
+              </div>
+              <p class="card-sub" id="days-preview" style="margin-top:10px"></p>
+              <div class="form-actions" style="margin-top:6px">
+                <button class="btn btn-primary" type="submit">Apply</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Helper -->
+          <section class="card">
+            <h2>Smart helper</h2>
+            <p class="card-sub">Ask about your own attendance and leaves</p>
+            <div id="chat"></div>
+          </section>
+        </div>
+
+        <!-- My leaves -->
+        <section class="card">
+          <h2>My leave requests</h2>
+          <div class="table-wrap" style="margin-top:10px">
+            <table>
+              <thead>
+                <tr><th>Type</th><th>Dates</th><th>Days</th><th>Reason</th><th>Status</th><th>Admin comment</th><th></th></tr>
+              </thead>
+              <tbody id="my-leaves"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- My attendance -->
+        <section class="card">
+          <div class="card-head">
+            <h2>My attendance</h2>
+            <input type="month" id="att-month" aria-label="Month" style="width:auto">
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Date</th><th>Day</th><th>Check in</th><th>Check out</th><th>Hours</th><th>Status</th></tr>
+              </thead>
+              <tbody id="my-att"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="grid grid-2">
+          <section class="card">
+            <h2>Announcements</h2>
+            <div id="announce-list" style="margin-top:8px"></div>
+          </section>
+
+          <section class="card">
+            <h2>Change password</h2>
+            <form id="password-form" novalidate style="margin-top:10px">
+              <div class="form-grid">
+                <div class="full">
+                  <label for="p-old">Current password</label>
+                  <input id="p-old" name="oldPassword" type="password" autocomplete="current-password">
+                </div>
+                <div class="full">
+                  <label for="p-new">New password</label>
+                  <input id="p-new" name="newPassword" type="password" autocomplete="new-password">
+                </div>
+                <div class="full">
+                  <label for="p-confirm">Confirm new password</label>
+                  <input id="p-confirm" name="confirm" type="password" autocomplete="new-password">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Change password</button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/employees.js"></script>
+  <script src="../js/attendance.js"></script>
+  <script src="../js/leave.js"></script>
+  <script src="../js/payroll.js"></script>
+  <script src="../js/announcements.js"></script>
+  <script src="../js/helper.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/pages/employee.js"></script>
+</body>
+</html>

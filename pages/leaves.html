@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HCM Lite - Leave requests</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+
+        <section class="card">
+          <div class="card-head">
+            <h2>Leave requests</h2>
+          </div>
+
+          <div class="tabs" id="tabs">
+            <button class="tab active" data-status="pending" type="button">Pending</button>
+            <button class="tab" data-status="approved" type="button">Approved</button>
+            <button class="tab" data-status="rejected" type="button">Rejected</button>
+            <button class="tab" data-status="" type="button">All</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Employee</th><th>Type</th><th>Dates</th><th>Days</th><th>Reason</th><th>Status</th><th>Comment</th><th></th></tr>
+              </thead>
+              <tbody id="leave-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Approve / reject with comment -->
+  <dialog id="decide-dialog">
+    <h2 id="decide-title">Decision</h2>
+    <p class="card-sub" id="decide-info"></p>
+    <form id="decide-form" novalidate>
+      <label for="d-comment">Comment</label>
+      <textarea id="d-comment" name="comment" placeholder="Write a comment for the employee"></textarea>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="button" id="approve-btn">Approve</button>
+        <button class="btn btn-danger" type="button" id="reject-btn">Reject</button>
+        <button class="btn btn-outline" type="button" id="decide-cancel">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/employees.js"></script>
+  <script src="../js/attendance.js"></script>
+  <script src="../js/leave.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/pages/leaves.js"></script>
+</body>
+</html>

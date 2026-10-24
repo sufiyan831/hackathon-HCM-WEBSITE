@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HCM Lite - Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <section class="auth-hero">
+      <h1>HCM Lite</h1>
+      <p>A small HR web app for Admin and Employees. Attendance, leave, payslips and a smart helper - all saved in your browser.</p>
+      <ul>
+        <li>Admin: company, employees, leave approval</li>
+        <li>Employee: check in / out, apply leave, payslip</li>
+      </ul>
+    </section>
+
+    <section class="auth-form-side">
+      <!-- First run: create company + Admin account -->
+      <div class="card auth-card hidden" id="setup-card">
+        <h2>Set up your company</h2>
+        <p class="card-sub">First time here. Create the company and the Admin account.</p>
+        <form id="setup-form" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="companyName">Company name</label>
+              <input id="companyName" name="companyName" type="text" placeholder="e.g. Saylani Tech">
+            </div>
+            <div>
+              <label for="adminName">Your name</label>
+              <input id="adminName" name="adminName" type="text">
+            </div>
+            <div>
+              <label for="setupEmail">Admin email</label>
+              <input id="setupEmail" name="email" type="email">
+            </div>
+            <div>
+              <label for="setupPassword">Password</label>
+              <input id="setupPassword" name="password" type="password" placeholder="At least 6 characters">
+            </div>
+            <div>
+              <label for="setupConfirm">Confirm password</label>
+              <input id="setupConfirm" name="confirm" type="password">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary btn-block" type="submit">Create company</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Normal login -->
+      <div class="card auth-card hidden" id="login-card">
+        <h2>Welcome back</h2>
+        <p class="card-sub" id="login-company"></p>
+        <form id="login-form" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="loginEmail">Email</label>
+              <input id="loginEmail" name="email" type="email" autocomplete="username">
+            </div>
+            <div>
+              <label for="loginPassword">Password</label>
+              <input id="loginPassword" name="password" type="password" autocomplete="current-password">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary btn-block" type="submit">Log in</button>
+          </div>
+        </form>
+        <p class="card-sub" style="margin-top:14px">Employees: use the email and password your Admin gave you.</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast-host"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/employees.js"></script>
+  <script src="js/attendance.js"></script>
+  <script src="js/leave.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/index.js"></script>
+</body>
+</html>
